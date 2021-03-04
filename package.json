@@ -1,0 +1,11 @@
+{
+  "name": "hole",
+  "version": "1.0.0",
+  "description": "> #### 作者：Zira > #### 应用：城市技术圈专用实践手册",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

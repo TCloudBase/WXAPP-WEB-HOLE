@@ -1,0 +1,81 @@
+{
+  "envId": "vote-6guv8sjjec589b77",
+  "$schema": "https://framework-1258016615.tcloudbaseapp.com/schema/latest.json",
+  "version": "2.0",
+  "functionRoot": "functions",
+  "framework": {
+    "plugins": {
+      "client": {
+        "use": "@cloudbase/framework-plugin-website",
+        "inputs": {
+          "outputPath": "webviews",
+          "cloudPath": "/hole",
+          "envVariables": {
+            "ENV_ID": "vote-6guv8sjjec589b77"
+          }
+        }
+      },
+      "clientmp": {
+        "use": "@cloudbase/framework-plugin-mp",
+        "inputs": {
+          "appid": "wxabad4df0697ae2ca",
+          "privateKeyPath": "",
+          "localPath": "./",
+          "ignores": ["node_modules/**/*"],
+          "deployMode": "preview",
+          "previewOptions": {
+            "desc": "CloudBase Framework 一键预览",
+            "setting": {
+              "es6": true
+            },
+            "qrcodeOutputPath": "./qrcode.jpg",
+            "pagePath": "pages/index/index"
+          }
+        }
+      },
+      "db": {
+        "use": "@cloudbase/framework-plugin-database",
+        "inputs": {
+          "collections": [
+            {
+              "collectionName": "admin",
+              "aclTag":"ADMINWRITE"
+            },
+            {
+              "collectionName": "comment",
+              "aclTag":"PRIVATE"
+            },
+            {
+              "collectionName": "forum",
+              "aclTag":"PRIVATE"
+            }
+          ]
+        }
+      },
+      "server": {
+        "use": "@cloudbase/framework-plugin-function",
+        "inputs": {
+          "functionRootPath": "cloudfunctions",
+          "functions": [
+            {
+              "name": "imagesec",
+              "installDependency":true
+            },
+            {
+              "name": "login",
+              "installDependency":true
+            },
+            {
+              "name": "removeitem",
+              "installDependency":true
+            },
+            {
+              "name": "textsec",
+              "installDependency":true
+            }
+          ]
+        }
+      }
+    }
+  }
+}
